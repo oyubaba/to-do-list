@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import CustomInput from "../../components/Input";
 import categoriasMock from "../../mocks/categorias.mock";
 import { JogoType } from "../../types/jogo.type";
-import jogosMock from "../../mocks/jogos.mock";
 import { useNavigate } from "react-router-dom";
 
 const NovoJogo = () => {
@@ -21,22 +20,35 @@ const NovoJogo = () => {
             imagem: e.target[4].value,
             descricao: e.target[5].value
         }
-        console.log(novoJogo);
+
+        let jogosMock: JogoType[] = [];
+
+        const jogosMockString = localStorage.getItem('jogosMock');
+
+        if (jogosMockString) {
+            console.log('entrou aqui 1')
+            jogosMock = JSON.parse(jogosMockString);
+        }
+
         jogosMock.push(novoJogo);
+
         localStorage.setItem('jogosMock', JSON.stringify(jogosMock));
+        console.log('entrou aqui 2', jogosMock)
+
         navigate('/jogos');
     }
+
 
     return (
         <Box backgroundColor="#00070A" color="#fff" fontFamily="sans-serif" h="100vh">
             <Header />
 
-            <Flex w="100%" h="100%" justifyContent="center" alignItems="center">
+            <Flex w="100%" justifyContent="center" alignItems="center">
 
                 <form onSubmit={handleSubmit}>
                     <Flex flexDirection="column" maxW="800px">
                         <Text fontWeight="bold" fontSize="22px">Adicionar novo jogo</Text>
-                        <Flex justifyContent="space-between"  alignItems="center">
+                        <Flex justifyContent="space-between" alignItems="center">
                             <CustomInput width="260px" label="Nome" type="text" placeholder="Exemplo: Star Wars" />
                             <Select
                                 size="md"
