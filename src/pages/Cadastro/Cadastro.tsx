@@ -20,6 +20,8 @@ const Cadastro = () => {
         }
 
         localStorage.setItem('listaUsuarios', JSON.stringify([...listaUsuarios, usuario]));
+        localStorage.setItem('isLogged', JSON.stringify(true));
+        localStorage.setItem('UserLoggedName', JSON.stringify(usuario.nome));
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

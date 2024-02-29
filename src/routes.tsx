@@ -3,11 +3,12 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Jogos from "./pages/Jogos/Jogos";
+import NovoJogo from "./pages/NovoJogo/NovoJogo";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />
+        element: <Jogos />
     },
     {
         path: "/login",
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
     {
         path: "/jogos",
         element: <Jogos />
-    }
+    },
+    {
+        path: "/novo-jogo",
+        element: <NovoJogo />
+    },
 ])
 
 export default router;

@@ -2,85 +2,45 @@ import { JogoType } from "../types/jogo.type";
 
 const jogosMock: JogoType[] = [
   {
-      nome: 'Guerra das Estratégias',
+      nome: 'Agar.io',
       categoria: 'Strategy',
-      url: 'https://example.com/guerra-das-estrategias',
-      urlDemostracao: 'https://example.com/demo/guerra-das-estrategias',
-      descricao: 'Construa seu império e domine o mundo neste jogo de estratégia épico.',
-      imagem: 'https://picsum.photos/200/300?random1'
+      url: 'https://agar.io/?',
+      urlDemostracao: 'https://agar.io/?',
+      descricao: 'Um jogo multijogador online em que os jogadores controlam uma célula em um mapa representando uma placa de Petri',
+      imagem: 'https://upload.wikimedia.org/wikipedia/pt/2/2e/Agar.io_logo.png'
   },
   {
-      nome: 'Ação Espacial: O Retorno',
+      nome: 'Slither.io',
       categoria: 'Action',
-      url: 'https://example.com/acao-espacial',
-      urlDemostracao: 'https://example.com/demo/acao-espacial',
-      descricao: 'A batalha pelo universo está de volta! Prepare-se para ação intensa e gráficos impressionantes.',
-      imagem: 'https://picsum.photos/200/300?random2'
+      url: 'https://slither.io/',
+      urlDemostracao: 'https://slither.io/',
+      descricao: 'Jogadores controlam uma minhoca e tentam crescer engolindo pellets e outros jogadores. O objetivo é se tornar a maior minhoca na arena.',
+      imagem: 'https://upload.wikimedia.org/wikipedia/pt/3/37/Slitherio.png'
   },
   {
-      nome: 'Atirador Galáctico',
+      nome: 'Krunker.io',
       categoria: 'Shooter',
-      url: 'https://example.com/atirador-galactico',
-      urlDemostracao: 'https://example.com/demo/atirador-galactico',
-      descricao: 'Proteja a galáxia dos invasores alienígenas neste emocionante jogo de tiro em primeira pessoa.',
-      imagem: 'https://picsum.photos/200/300?random3'
+      url: 'https://krunker.io/',
+      urlDemostracao: 'https://krunker.io/',
+      descricao: 'Um jogo de tiro em primeira pessoa baseado em navegador com gráficos de estilo retrô.',
+      imagem: 'https://images.crazygames.com/games/krunker-io/cover-1591336739727.png?auto=format,compress&q=75&cs=strip'
   },
   {
-      nome: 'Aventuras Perdidas',
-      categoria: 'Adventure',
-      url: 'https://example.com/aventuras-perdidas',
-      urlDemostracao: 'https://example.com/demo/aventuras-perdidas',
-      descricao: 'Explore terras desconhecidas, resolva enigmas e descubra segredos antigos nesta aventura emocionante.',
-      imagem: 'https://picsum.photos/200/300?random4'
-  },
-  {
-      nome: 'Futebol Total',
-      categoria: 'Sports',
-      url: 'https://example.com/futebol-total',
-      urlDemostracao: 'https://example.com/demo/futebol-total',
-      descricao: 'Entre em campo e mostre suas habilidades neste simulador de futebol realista e envolvente.',
-      imagem: 'https://picsum.photos/200/300?random5'
-  },
-  {
-      nome: 'Reinos da Fantasia',
-      categoria: 'Role Playing Game (RPG)',
-      url: 'https://example.com/reinos-da-fantasia',
-      urlDemostracao: 'https://example.com/demo/reinos-da-fantasia',
-      descricao: 'Escolha seu personagem e embarque em uma jornada épica através de terras mágicas e perigosas.',
-      imagem: 'https://picsum.photos/200/300?random6'
-  },
-  {
-      nome: 'Quebra-Cabeças Misteriosos',
+      nome: 'Diep.io',
       categoria: 'Puzzle',
-      url: 'https://example.com/quebra-cabecas-misteriosos',
-      urlDemostracao: 'https://example.com/demo/quebra-cabecas-misteriosos',
-      descricao: 'Resolva enigmas desafiadores e desvende segredos ocultos neste intrigante jogo de quebra-cabeça.',
-      imagem: 'https://picsum.photos/200/300?random7'
+      url: 'https://krunker.io/',
+      urlDemostracao: 'https://krunker.io/',
+      descricao: 'Jgadores controlam tanques e atiram em formas geométricas e outros jogadores para ganhar pontos e evoluir seus tanques.',
+      imagem: 'https://i.pinimg.com/originals/92/29/e2/9229e2e9b4c93a8cb87ab8fdab37fd3f.png'
   },
   {
-      nome: 'Operação: Aniquilação',
-      categoria: 'Shooter',
-      url: 'https://example.com/operacao-aniquilacao',
-      urlDemostracao: 'https://example.com/demo/operacao-aniquilacao',
-      descricao: 'Participe de missões secretas e elimine alvos de alto valor neste intenso jogo de tiro tático.',
-      imagem: 'https://picsum.photos/200/300?random8'
-  },
-  {
-      nome: 'Corrida Radical',
-      categoria: 'Sports',
-      url: 'https://example.com/corrida-radical',
-      urlDemostracao: 'https://example.com/demo/corrida-radical',
-      descricao: 'Acelere seu carro em pistas desafiadoras e torne-se o campeão definitivo nesta corrida emocionante.',
-      imagem: 'https://picsum.photos/200/300?random9'
-  },
-  {
-      nome: 'Aventuras na Arcádia',
+      nome: 'Squadd.io',
       categoria: 'Arcade',
-      url: 'https://example.com/aventuras-na-arcadia',
-      urlDemostracao: 'https://example.com/demo/aventuras-na-arcadia',
-      descricao: 'Reviva a nostalgia dos fliperamas com este conjunto de minijogos clássicos e divertidos.',
-      imagem: 'https://picsum.photos/200/300?random10'
-  }
+      url: 'https://krunker.io/',
+      urlDemostracao: 'https://krunker.io/',
+      descricao: 'Jogadores controlam personagens em uma arena e tentam eliminar uns aos outros para ganhar pontos.',
+      imagem: 'https://cdn.pacogames.com/images/fb/squaddio-fb.jpg'
+  },
 ];
 
   export default jogosMock;

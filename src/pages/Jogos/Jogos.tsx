@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import jogosMock from "../../mocks/jogos.mock";
 import categoriasMock from "../../mocks/categorias.mock";
 import Header from "../../components/Header";
@@ -8,6 +8,10 @@ import { Box, Button, Card, CardBody, Flex, Input, Select, Text, Image } from "@
 const Jogos = () => {
     const [filtro, setFiltro] = useState('');
     const [filtroCategoria, setFiltroCategoria] = useState('');
+
+    useEffect(() => {
+        localStorage.setItem('jogosMock', JSON.stringify(jogosMock));
+    }, []);
 
     const listaDeJogos = () => {
         let listaJogos = [...jogosMock];
@@ -30,7 +34,7 @@ const Jogos = () => {
     return (
         <Box backgroundColor="#00070A" color="#fff" fontFamily="sans-serif">
             <Header />
-            <Flex flexDirection="column" p="20px" alignItems="center">
+            <Flex flexDirection="column" p="20px" alignItems="center" height="100vh">
                 <Box maxW="1100px">
                 <h2>Jogos</h2>
                 <form onSubmit={submitHandler}>
@@ -46,7 +50,7 @@ const Jogos = () => {
                 <Flex flexWrap="wrap" mt="30px">
                     {listaDeJogos().length > 0 ? (
                         listaDeJogos().map(jogo => (
-                            <Card key={jogo.nome} backgroundColor="#000000" w="250px" m="5px">
+                            <Card cursor="pointer" key={jogo.nome} backgroundColor="#000000" w="250px" m="5px" onClick={() => {window.open(jogo.url, '_blank')}}>
                                 <CardBody>
                                 <Image src={jogo.imagem} alt={jogo.nome} w="100%" h="150px" objectFit="cover" />
                                     <Box p="10px">
@@ -54,9 +58,6 @@ const Jogos = () => {
                                     <Rating name="read-only" value={2} readOnly />
                                     <Text>{jogo.descricao}</Text>
                                     </Box>
-                                    {/* <Flex w="100%" justifyContent="end" alignItems="baseline"> */}
-                                    <Button type="submit" w="100px" h="48px" fontWeight="bold" borderRadius="5px" backgroundColor="#ffffff" color="#750310">Avaliar</Button>
-                                    {/* </Flex> */}
                                 </CardBody>
                             </Card>
                         ))
