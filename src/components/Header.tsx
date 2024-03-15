@@ -25,7 +25,7 @@ const Header = () => {
             <Flex w="100vw" maxW="1100px" alignItems="center" justifyContent="space-between">
                 <Flex color="#fff" alignItems="center">
                     <CgGames color="#065E7C" size="40px" />
-                    <Text fontSize="20px" fontWeight="bold" ml="10px">best browser games</Text>
+                    <Text fontSize="20px" fontWeight="bold" ml="10px">Tarefas</Text>
                 </Flex>
                 <Flex alignItems="center">
                     <FaUser color="#fff" onClick={() => {

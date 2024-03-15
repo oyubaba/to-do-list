@@ -1,8 +1,7 @@
-import { Box, Button, Flex, FormLabel, Select, Text, Textarea } from "@chakra-ui/react";
+import { Box, Button, Flex, FormLabel, Text, Textarea } from "@chakra-ui/react";
 import Header from "../../components/Header";
 import CustomInput from "../../components/Input";
-import categoriasMock from "../../mocks/categorias.mock";
-import { JogoType } from "../../types/jogo.type";
+import { TarefaType } from "../../types/jogo.type";
 import { useNavigate } from "react-router-dom";
 
 const NovoJogo = () => {
@@ -12,28 +11,25 @@ const NovoJogo = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        const novoJogo: JogoType = {
+        const novaTarefa: TarefaType = {
             nome: e.target[0].value,
-            categoria: e.target[1].value,
-            url: e.target[2].value,
-            urlDemostracao: e.target[3].value,
-            imagem: e.target[4].value,
-            descricao: e.target[5].value
+            descricao: e.target[1].value,
+            data: e.target[2].value,
+            status: e.target[3].value,
         }
 
-        let jogosMock: JogoType[] = [];
+        let tarefasMock: TarefaType[] = [];
 
         const jogosMockString = localStorage.getItem('jogosMock');
 
         if (jogosMockString) {
             console.log('entrou aqui 1')
-            jogosMock = JSON.parse(jogosMockString);
+            tarefasMock = JSON.parse(jogosMockString);
         }
 
-        jogosMock.push(novoJogo);
+        tarefasMock.push(novaTarefa);
 
-        localStorage.setItem('jogosMock', JSON.stringify(jogosMock));
-        console.log('entrou aqui 2', jogosMock)
+        localStorage.setItem('jogosMock', JSON.stringify(tarefasMock));
 
         navigate('/jogos');
     }
@@ -47,31 +43,11 @@ const NovoJogo = () => {
 
                 <form onSubmit={handleSubmit}>
                     <Flex flexDirection="column" maxW="800px">
-                        <Text fontWeight="bold" fontSize="22px">Adicionar novo jogo</Text>
+                        <Text fontWeight="bold" fontSize="22px">Adicionar nova tarefa</Text>
                         <Flex justifyContent="space-between" alignItems="center">
-                            <CustomInput width="260px" label="Nome" type="text" placeholder="Exemplo: Star Wars" />
-                            <Select
-                                size="md"
-                                h="40px"
-                                backgroundColor="#0D1D25"
-                                colorScheme="#ffffff9e"
-                                color="#ffffff9a"
-                                textColor="white"
-                                border="none"
-                                outline="none"
-                            >
-                                {categoriasMock.map(categoria => (
-                                    <option key={categoria.codigo} value={categoria.nome} style={{ color: 'white' }}>
-                                        {categoria.nome}
-                                    </option>
-                                ))}
-                            </Select>
-                            <CustomInput width="260px" label="URL de acesso" type="text" placeholder="Exemplo: www.teste.com.br" />
-
-                        </Flex>
-                        <Flex justifyContent="space-between">
-                            <CustomInput width="390px" label="URL de demonstração" type="text" placeholder="Exemplo: www.teste.com.br" />
-                            <CustomInput width="390px" label="URL da imagem" type="text" />
+                            <CustomInput width="250px" label="Nome" type="text" />
+                            <CustomInput width="250px" label="Data" type="text" />
+                            <CustomInput width="250px" label="Status" type="text" />
                         </Flex>
                         <Flex>
                             <Box>

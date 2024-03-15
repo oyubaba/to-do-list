@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import jogosMock from "../../mocks/jogos.mock";
-import categoriasMock from "../../mocks/categorias.mock";
 import Header from "../../components/Header";
-import Rating from '@mui/material/Rating';
-import { Box, Button, Card, CardBody, Flex, Input, Select, Text, Image } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Flex, Input, Select, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const Jogos = () => {
-    const [filtro, setFiltro] = useState('');
-    const [filtroCategoria, setFiltroCategoria] = useState('');
+    const [filtro, setFiltro] = useState<string>('');
+    const [filtroCategoria, setFiltroCategoria] = useState<string>('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,7 +19,7 @@ const Jogos = () => {
         if (jogosAtuais) {
             listaJogos = JSON.parse(jogosAtuais)
         }
-        return listaJogos.filter(jogo => jogo.nome.toLowerCase().includes(filtro.toLowerCase()) && jogo.categoria.includes(filtroCategoria));
+        return listaJogos.filter(jogo => jogo.nome.toLowerCase().includes(filtro.toLowerCase()) && jogo.status.toLowerCase().includes(filtroCategoria.toLowerCase()));
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,8 +42,8 @@ const Jogos = () => {
                             <Flex>
                                 <Input type='text' h="40px" w="200px" backgroundColor="#0D1D25" color="#fff" placeholder="Nome do jogo" mr="20px" />
                                 <Select placeholder='Select option' h="40px" w="200px" backgroundColor="#0D1D25" color="#fff" mr="30px">
-                                    <option value="">-- Todas as categorias --</option>
-                                    {categoriasMock.map(categoria => (<option key={categoria.codigo} value={categoria.nome}>{categoria.nome}</option>))}
+                                    <option value="completo">completo</option>
+                                    <option value="inacabada">incompleto</option>
                                 </Select>
                                 <Button cursor="pointer" type="submit" w="150px" h="40px" borderRadius="5px" backgroundColor="#750310" color="#fff">Pesquisar</Button>
                             </Flex>
@@ -56,14 +54,14 @@ const Jogos = () => {
                     </form>
                     <Flex flexWrap="wrap" mt="30px">
                         {listaDeJogos().length > 0 ? (
-                            listaDeJogos().map(jogo => (
-                                <Card cursor="pointer" key={jogo.nome} backgroundColor="#000000" w="250px" m="5px" onClick={() => { window.open(jogo.url, '_blank') }}>
+                            listaDeJogos().map((jogo, index) => (
+                                <Card cursor="pointer" key={index} backgroundColor="#000000" w="250px" m="5px">
                                     <CardBody>
-                                        <Image src={jogo.imagem} alt={jogo.nome} w="100%" h="150px" objectFit="cover" />
                                         <Box p="10px">
                                             <Text fontSize="20px" fontWeight="bold">{jogo.nome}</Text>
-                                            <Rating name="read-only" value={2} readOnly />
                                             <Text>{jogo.descricao}</Text>
+                                            <Text>{jogo.status}</Text>
+                                            <Text>{jogo.data}</Text>
                                         </Box>
                                     </CardBody>
                                 </Card>

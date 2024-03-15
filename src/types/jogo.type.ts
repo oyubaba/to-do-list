@@ -1,8 +1,6 @@
-export type JogoType = {
+export type TarefaType = {
     nome: string;
-    categoria: string;
-    url: string;
-    urlDemostracao: string;
     descricao: string;
-    imagem: string;
+    data: string;
+    status: string;
 }

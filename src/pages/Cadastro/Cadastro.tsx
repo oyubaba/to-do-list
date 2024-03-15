@@ -44,7 +44,7 @@ const Cadastro = () => {
             <Flex w="100%" h="100vh" maxWidth="1000px" alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <CgGames color="#065E7C" size="70px" />
-                    <Text fontSize="30px" fontWeight="bold" ml="20px">best browser games</Text>
+                    <Text fontSize="30px" fontWeight="bold" ml="20px">Tarefas</Text>
                 </Flex>
                 <Flex flexDirection="column" w="650px" h="520px" backgroundColor="#001119" justifyContent="center" alignItems="center" borderRadius="16px">
                     <Text fontSize="30px" fontWeight="bold">Crie sua conta</Text>
